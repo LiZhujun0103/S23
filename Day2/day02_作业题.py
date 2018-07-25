@@ -73,6 +73,7 @@ if recharge.isdigit():
                             buy_car.remove(nbuy_car[del_goods])
                             filt_car = {}
                             buy_money = 0
+                            nbuy_car = []
                         else:
                             print("请正确选择要移除的商品编号")
                             filt_car = {}
