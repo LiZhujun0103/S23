@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MIMI</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .he1{
+            height: 120px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 100%;
+            background-image: url(http://i1.mifile.cn/a4/cms_15374480714552_VCpGt.jpg);
+        }
+        .he1 a{
+            display: block;
+            height: 120px;
+            width: 100%;
+        }
+        .he2{
+            position: relative;
+            height: 40px;
+            z-index: 30;
+            font-size: 15px;
+            color: #b0b0b0;
+            background-color: rgb(51,51,51);
+        }
+        .he2 div{
+            display: block;
+        }
+        .j1{
+            width: 1226px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .j1:before, .j1:after{
+            content: " ";
+            display: table;
+        }
+        .j1:after{
+            clear: both;
+        }
+        #hl{
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            overflow: hidden;
+        }
+        #hri{
+            float: right;
+            position: relative;
+            margin-left: 15px;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+        }
+        #hm{
+            float: right;
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+        }
+        .sh1{
+            position: relative;
+            height: 100px;
+            z-index: 20;
+        }
+        .sh1 div{
+            display: block;
+        }
+        .sh1 .cont{
+            position: relative;
+            width: 1226px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cont .hlogo{
+            float: left;
+            width: 62px;
+            margin-top: 22px;
+        }
+        .hlogo{
+            position: relative;
+            display: block;
+            width: 55px;
+            height: 55px;
+            overflow: hidden;
+            background-color: red;
+            text-align: left;
+            text-indent: -9999em;
+        }
+        .mm{
+            float: left;
+            width: 850px;
+        }
+        .nvlist{
+            position: relative;
+            z-index: 10;
+            float: left;
+            width: 820px;
+            height: 88px;
+            margin: 0;
+            padding: 12px 0 0 30px;
+            list-style-type: none;
+            font-size: 16px;
+        }
+        .nav{
+            position: relative;
+            float: left;
+            width: 127px;
+            padding-right: 15px;
+            background-color: lightpink;
+        }
+        li{
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+        .nav a{
+            display: block;
+            padding: 26px 0 38px;
+            text-align: right;
+            color: #333;
+        }
+        .nav-list{
+            float: left;
+            line-height: 44px;
+        }
+        .link{
+            display: block;
+            padding: 26px 10px 38px;
+            color: #333;
+        }
+        .hs{
+            float: right;
+            width: 296px;
+            margin-top: 25px;
+        }
+        .seac{
+            position: relative;
+            width: 296px;
+            height: 50px;
+            margin: 0;
+            display: block;
+        }
+        .st{
+            position: absolute;
+            top: 0;
+            right: 51px;
+            z-index: 1;
+            width: 223px;
+            height: 48px;
+            padding: 0 10px;
+            border: 1px solid #e0e0e0;
+            font-size: 14px;
+            line-height: 48px;
+            outline: 0;
+            transition: all .2s;
+        }
+        .bt{
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 2;
+            width: 52px;
+            height: 50px;
+            border: 1px solid #e0e0e0;
+            font-size: 24px;
+            line-height: 24px;
+            background: #fff;
+            color: #616161;
+            outline: 0;
+            transition: all .2s;
+            -webkit-appearance: button;
+            cursor: pointer;
+            border-radius: 0;
+            font-family: "iconfont" !important;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            font: 400 13.3333px Arial;
+        }
+        .hero-container{
+            position: relative;
+            z-index: 10;
+            width: 1226px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .hero-container div{
+            display: block;
+        }
+        .hc{
+            position: relative;
+            margin-bottom: 26px;
+        }
+        .sc{
+            display: block;
+            position: absolute;
+            top: 88px;
+            left: -92px;
+            z-index: 21;
+            width: 234px;
+            height: 460px;
+            font-size: 14px;
+        }
+        .sc li{
+            text-align: -webkit-match-parent;
+        }
+        .usc{
+            height: 420px;
+            border: 0;
+            /*color: #fff;*/
+            /*background: #333;*/
+            background: rgba(0,0,0,0.6);
+            margin: 0;
+            padding: 20px 0;
+            list-style-type: none;
+        }
+        .title{
+            position: relative;
+            display: block;
+            padding-left: 30px;
+            height: 42px;
+            line-height: 42px;
+            text-decoration: none;
+            font-size: 25px;
+        }
+        .hhs{
+            position: relative;
+            height: 460px;
+            overflow: hidden;
+        }
+        .uw{
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="he1">
+        <a href="http://www.mi.com"></a>
+    </div>
+    <div class="he2">
+        <div class="j1">
+            <div id="hl">
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">小米商城</a>
+                <span class="ss1">|</span>
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">MIUI</a>
+                <span class="ss1">|</span>
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">loT</a>
+                <span class="ss1">|</span>
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">云服务</a>
+                <span class="ss1">|</span>
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">金融</a>
+                <span class="ss1">|</span>
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">有品</a>
+                <span class="ss1">|</span>
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">小爱开放平台</a>
+                <span class="ss1">|</span>
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">政企服务</a>
+                <span class="ss1">|</span>
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">Select Region</a>
+            </div>
+            <div id="hri">
+                <a rel="nofollow" style="color: #b0b0b0; text-decoration: none" href="http://www/mi.com">购物车</a>
+            </div>
+            <div id="hm">
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">登陆</a>
+                <span class="ss1">|</span>
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">注册</a>
+                <span class="ss1">|</span>
+                <a rel="nofollow"  href="http://www.mi.com" style="color: #b0b0b0; text-decoration: none">消息通知</a>
+            </div>
+        </div>
+    </div>
+    <div class="sh1">
+        <div class="cont">
+            <div class="hlogo">
+                <a href="http://www.mi.com">小米官网</a>
+            </div>
+            <div class="mm">
+                <ul class="nvlist">
+                    <li class="nav">
+                        <a href="http://www.mi.com" style="visibility: hidden"><span>全部商品分类</span></a>
+                        <div class="sc">
+                            <ul class="usc">
+                                <li class="category-item"><a class="title" style="color: greenyellow" href="http://www.mi.com">手机/电话卡</a></li>
+                                <li class="category-item"><a class="title" style="color: greenyellow" href="http://www.mi.com">电视盒子</a></li>
+                                <li class="category-item"><a class="title" style="color: greenyellow" href="http://www.mi.com">笔记本/平板</a></li>
+                                <li class="category-item"><a class="title" style="color: greenyellow" href="http://www.mi.com">出行穿戴</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-list">
+                        <a style="text-decoration: none" href="http://www.mi.com"><span class="link">小米手机</span></a>
+                    </li><li class="nav-list">
+                        <a style="text-decoration: none" href="http://www.mi.com"><span class="link">红米</span></a>
+                    </li><li class="nav-list">
+                        <a style="text-decoration: none" href="http://www.mi.com"><span class="link">电视</span></a>
+                    </li><li class="nav-list">
+                        <a style="text-decoration: none" href="http://www.mi.com"><span class="link">笔记本</span></a>
+                    </li><li class="nav-list">
+                        <a style="text-decoration: none" href="http://www.mi.com"><span class="link">空调</span></a>
+                    </li><li class="nav-list">
+                        <a style="text-decoration: none" href="http://www.mi.com"><span class="link">新品</span></a>
+                    </li><li class="nav-list">
+                        <a style="text-decoration: none" href="http://www.mi.com"><span class="link">路由器</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="hs">
+                <form action="" class="seac">
+                    <input type="search" class="st">
+                    <input type="submit" class="bt">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="hero-container">
+        <div class="hc">
+            <div class="hhs">
+                <div class="uw" style="max-width: 100%">
+                    <img src="https://i1.mifile.cn/a4/xmad_15374483298507_RDdAx.jpg" srcset="//i1.mifile.cn/a4/xmad_15374483357651_uXghf.jpg 2x">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
