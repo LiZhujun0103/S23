@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block page-main %}
+    <div id="table" style="margin-top: 55px">
+        <div class="add">
+            <form class="form-horizontal" action="" method="post">
+                <input type="text" name="appline" value="" placeholder="业务线"/>
+                <button type="submit" class="btn btn-info">添加</button>
+                <p>{{ mms }}</p>
+            </form>
+        </div>
+        <table class="table table-striped" cellpadding="0" cellspacing="0">
+            <thead>
+            <tr>
+                <th style="text-align: center">序号</th>
+                <th>业务线</th>
+                <th>用户</th>
+                {#                <th>业务线</th>#}
+                <th style="text-align: center">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in ali %}
+                <tr>
+                    <td width="5%" style="text-align: center">{{ forloop.counter }}</td>
+                    <td>{{ i.appname }}</td>
+                    <td width="35%">
+                        {% for m in i.line_user.all %}
+                            {{ m.name }}<span>&nbsp|</span>
+                        {% endfor %}
+                    </td>
+                    {#                    <td width="25%">{{ i.line.appname }}</td>#}
+                    <td width="15%" style="text-align: center"><a class="btn btn-danger"
+                                                                  href="{% url 'ldelt' %}?idi={{ i.lid }}">删除</a>&nbsp&nbsp<a
+                            class="btn btn-primary" href="#">编辑</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

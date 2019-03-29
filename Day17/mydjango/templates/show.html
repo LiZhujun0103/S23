@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block page-main %}
+		<div id="table" style="margin-top: 55px">
+			<div class="add">
+                <form action="" method="post">
+                    <input type="text" name="title" value="" placeholder="用户名" />
+				    <input type="password" name="user" value="" placeholder="密码" />
+{#				    <input type="date" name="date" value="" placeholder="发布时间" />#}
+				    <button type="submit" class="btn btn-info">新增</button>
+                    <p>{{ mms }}</p>
+                </form>
+			</div>
+			<table class="table table-striped" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th style="text-align: center">序号</th>
+						<th>用户名</th>
+						<th>密文密码</th>
+						<th>发布时间</th>
+						<th style="text-align: center">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+                    {% for i in commc %}
+					<tr>
+						<td width="5%" style="text-align: center">{{ forloop.counter }}</td>
+						<td>{{ i.name }}</td>
+						<td width="35%">{{ i.password }}</td>
+						<td width="25%">{{ i.settime }}</td>
+						<td style="text-align: center" width="15%"><a class="btn btn-danger" href="/dele/?idi={{ i.uid }}">删除</a>&nbsp&nbsp<a class="btn btn-primary" href="/edi/?idi={{ i.uid }}">编辑</a></td>
+					</tr>
+                    {% endfor %}
+				</tbody>
+			</table>
+		</div>
+{% endblock %}

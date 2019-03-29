@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block page-main %}
+    <div class="edi" style="margin-top: 55px">
+        <form action="" method="post">
+            <input type="text" readonly="readonly" name="uui" value="{{ ccm.id }}" placeholder="序号"
+                   style="display: none">
+            <input type="text" name="usn" value="{{ ccm.hostname }}" placeholder="主机名"/>
+            <input type="password" name="psd" value="{{ ccm.paswd }}" placeholder="密码"/>
+            <select name="appline" id="app" class="btn btn-default">
+                {% for l in apl %}
+                    {% if l.lid == ccm.line_id %}
+                        <option selected="selected" value="{{ l.lid }}">{{ l.appname }}</option>
+                    {% else %}
+                        <option value="{{ l.lid }}">{{ l.appname }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-info">更新</button>
+        </form>
+    </div>
+{% endblock %}

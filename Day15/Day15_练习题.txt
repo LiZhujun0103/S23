@@ -1,0 +1,60 @@
+1.什么是WSGI
+WSGI 的官方定义是，the Python Web Server Gateway Interface。从名字就可以看出来，这东西是一个Gateway，也就是网关。网关的作用就是在协议之间进行转换。
+WSGI 是作为 Web 服务器与 Web 应用程序或应用框架之间的一种低级别的接口，以提升可移植 Web 应用开发的共同点。WSGI 是基于现存的 CGI 标准而设计的。
+
+2.mvc和mtv的区别以及django属于哪一种？
+MVC：
+M全拼为Model，主要封装对数据库层的访问，对数据库中的数据进行增、删、改、查操作。
+V全拼为View，用于封装结果，生成页面展示的html内容。
+C全拼为Controller，用于接收请求，处理业务逻辑，与Model和View交互，返回结果。
+MTV
+M全拼为Model，与MVC中的M功能相同，负责和数据库交互，进行数据处理。
+V全拼为View，与MVC中的C功能相同，接收请求，进行业务处理，返回应答。
+T全拼为Template，与MVC中的V功能相同，负责封装构造要返回的html。
+django属于MTV
+
+3.django常见命令
+ 新建一个 django project：django-admin.py startproject project_name
+ 新建 app：django-admin.py startapp app_name 或 python manage.py startapp app_name
+ 创建数据库表或更改数据库表或字段：
+	创建更改的文件：python manage.py makemigrations  
+	将生成的py文件应用到数据库：python manage.py migrate
+	清空数据库：python manage.py flush		此命令会询问是 yes 还是 no, 选择 yes 会把数据全部清空掉，只留下空表。
+	导出数据 导入数据：python manage.py dumpdata appname > appname.json		python manage.py loaddata appname.json
+ 使用开发服务器：
+	python manage.py runserver
+	# 当提示端口被占用的时候，可以用其它端口：
+	python manage.py runserver 8001
+	# 监听机器所有可用 ip （电脑可能有多个内网ip或多个外网ip）
+	python manage.py runserver 0.0.0.0:8000
+	
+4.如何通过GET和POST向后台传参
+  1、get是把参数数据队列加到提交表单的ACTION属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。post是通过HTTP post机制，将表单内各个字段与其内容放置在HTML   HEADER内一起传送到ACTION属性所指的URL地址。用户看不到这个过程。
+  2、对于get方式，服务器端用Request.QueryString获取变量的值，对于post方式，服务器端用Request.Form获取提交的数据。两种方式的参数都可以用Request来获得。 
+  3、get传送的数据量较小，不能大于2KB。post传送的数据量较大，一般被默认为不受限制。但理论上，IIS4中最大量为80KB，IIS5中为100KB。
+  4、get安全性非常低，post安全性较高。
+	通过get方法提交数据，可能会带来安全性的问题。比如一个登陆页面。当通过get方法提交数据时，用户名和密码将出现在URL上。如果：
+	１、 登陆页面可以被浏览器缓存；
+	２、 其他人可以访问客户的这台机器。
+	别人即可以从浏览器的历史记录中，读取到此客户的账号和密码。所以，在某些情况下，get方法会带来严重的安全性问题。
+	post是通过HTTP post机制，将表单内各个字段与其内容放置在HTML HEADER内一起传送到ACTION属性所指的URL地址。用户看不到这个过程。
+	
+5.django中如何获取POST和GET传入的参数
+  request.POST.get('')
+  request.GET.get('')
+  
+6.模板渲染时如何获取列表或字典的元素（根据索引）？
+	{% for i in List %}
+	{{ i }}
+	{% endfor %}
+	
+7.什么是ORM？
+对象关系映射（Object Relational Mapping，简称ORM）模式是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。
+它的作用是在关系型数据库和对象之间作一个映射，这样，我们在具体的操作数据库的时候，就不需要再去和复杂的SQL语句打交道，只要像平时操作对象一样操作它就可以了。
+
+8.创建django程序时需要注意的配置有哪些？
+	1.在settings.py中使用os. path.dirname()	
+	2.合理配置使用URLs
+	
+9. 请写出流程：创建一张表并对其进行增删改查
+见作业

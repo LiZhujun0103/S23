@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% load rbac %}
+    {% if request|has_permission:'server_add' %}
+        <a href="{% url 'server_add' %}" class="btn btn-primary" style="margin: 5px"><i
+                class="fa fa-plus-square-o fa-fw"
+                aria-hidden="true"></i>添加</a>
+    {% endif %}
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>名称</th>
+            {% if request|has_permission:'server_edit' or request|has_permission:'server_del' %}
+                <th>操作</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for ser in all_depart %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ ser.name }}</td>
+                {% if request|has_permission:'server_edit' or request|has_permission:'server_del' %}
+                    <td>{% if request|has_permission:'server_edit' %}
+                        <a href="{% url 'server_edit' ser.mid %}"><i class="fa fa-pencil-square-o fa-fw"
+                                                                     aria-hidden="true"></i></a>
+                    {% endif %}
+                        {% if request|has_permission:'server_del' %}
+                            <i class="fa fa-trash-o fa-fw" del_id={{ ser.mid }}
+                                    aria-hidden="true"></i>
+                        {% endif %}
+                    </td>
+                {% endif %}
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {#            {% for num in total_page_num %}#}
+            {#                <li><a href="/crm/depart/list/?page={{ num }}">{{ num }}</a></li>#}
+            {#            {% endfor %}#}
+            {{ page_html|safe }}
+        </ul>
+    </nav>
+{% endblock %}
+
+
+{% block js %}
+    <script>
+
+        $('.fa-trash-o').click(
+            function () {
+                swal({
+                    title: "是否删除?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var del_id = $(this).attr('del_id');
+                            $.ajax({
+                                url: '/crm/maintions/del/' + del_id,
+                                method: 'get',
+                            });
+                            console.log(1111, $(this));
+                            $(this).parent().parent().remove();
+                            swal("Poof! Your imaginary file has been deleted!", {
+                                icon: "success",
+                            });
+                        } else {
+                            swal("Your imaginary file is safe!");
+                        }
+                    });
+            }
+        )
+
+    </script>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% load rbac %}
+    {% if request|has_permission:'user_add' %}
+        <a href="{% url 'user_add' %}" class="btn btn-primary" style="margin: 5px"><i class="fa fa-plus-square-o fa-fw"
+                                                                                      aria-hidden="true"></i>添加</a>
+    {% endif %}
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>用户名</th>
+            <th>密码</th>
+            <th>部门</th>
+            {% if request|has_permission:'user_edit' or request|has_permission:'user_del' %}
+                <th>操作</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in all_user %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.depart.title }}</td>
+                {% if request|has_permission:'user_edit' or request|has_permission:'user_del' %}
+                    <td>{% if request|has_permission:'user_edit' %}
+                        <a href="{% url 'user_edit' user.pk %}"><i class="fa fa-pencil-square-o fa-fw"
+                                                                   aria-hidden="true"></i></a>
+                    {% endif %}
+                        {% if request|has_permission:'user_del' %}
+                            <i class="fa fa-trash-o fa-fw" del_id={{ user.pk }}
+                                    aria-hidden="true"></i>
+                        {% endif %}
+                    </td>
+                {% endif %}
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}
+
+
+{% block js %}
+    <script>
+
+        $('.fa-trash-o').click(
+            function () {
+                swal({
+                    title: "是否删除?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var del_id = $(this).attr('del_id');
+                            $.ajax({
+                                url: '/crm/user/del/' + del_id,
+                                method: 'get',
+                            });
+                            {#console.log(1111, $(this));#}
+                            $(this).parent().parent().remove();
+                            swal("Poof! Your imaginary file has been deleted!", {
+                                icon: "success",
+                            });
+                        } else {
+                            swal("Your imaginary file is safe!");
+                        }
+                    });
+            }
+        )
+
+    </script>
+{% endblock %}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>用户信息</title>
+		<style type="text/css">
+			#table table {
+				width: 100%;
+				font-size: 14px;
+				border: 1px solid #eee
+			}
+			
+			#table {
+				padding: 0 10px;
+			}
+			
+			table thead th {
+				background: #f5f5f5;
+				padding: 10px;
+				text-align: left;
+			}
+			
+			table tbody td {
+				padding: 10px;
+				text-align: left;
+				border-bottom: 1px solid #eee;
+				border-right: 1px solid #eee;
+			}
+			
+			table tbody td span {
+				margin: 0 10px;
+				cursor: pointer;
+			}
+			
+			.delete {
+				color: black;
+			}
+			
+			.edit {
+				color: #008cd5;
+			}
+			
+			.add {
+				border: 1px solid #eee;
+				margin: 10px 0;
+				padding: 15px;
+			}
+			
+			input {
+				border: 1px solid #ccc;
+				padding: 5px;
+				border-radius: 3px;
+				margin-right: 15px;
+			}
+			
+			button {
+				background: #008cd5;
+				border: 0;
+				padding: 4px 15px;
+				border-radius: 3px;
+				color: #fff;
+			}
+			
+			#mask {
+				background: rgba(0, 0, 0, .5);
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				z-index: 4;
+				top: 0;
+				left: 0;
+			}
+			
+			.mask {
+				width: 300px;
+				height: 250px;
+				background: rgba(255, 255, 255, 1);
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				z-index: 47;
+				border-radius: 5px;
+			}
+			
+			.title {
+				padding: 10px;
+				border-bottom: 1px solid #eee;
+			}
+			
+			.title span {
+				float: right;
+				cursor: pointer;
+			}
+			
+			.content {
+				padding: 10px;
+			}
+			
+			.content input {
+				width: 270px;
+				margin-bottom: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="table">
+			<div class="add">
+                <form action="" method="post">
+                    <input type="text" name="title" value="" placeholder="用户名" />
+				    <input type="password" name="user" value="" placeholder="密码" />
+{#				    <input type="date" name="date" value="" placeholder="发布时间" />#}
+				    <button type="submit">新增</button>
+                    <p>{{ mms }}</p>
+                </form>
+			</div>
+			<table cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+{#						<th>序号</th>#}
+						<th>用户名</th>
+						<th>密文密码</th>
+						<th>发布时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+                    {% for i in commc %}
+					<tr>
+{#						<td width="5%">{{ i.uid }}</td>#}
+						<td>{{ i.name }}</td>
+						<td width="35%">{{ i.password }}</td>
+						<td width="25%">{{ i.settime }}</td>
+						<td width="15%"><a href="/dele/?idi={{ i.uid }}">删除</a>&nbsp&nbsp<a href="/edi/?idi={{ i.uid }}">编辑</a></td>
+					</tr>
+                    {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</body>
+
+</html>

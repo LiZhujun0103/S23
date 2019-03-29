@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edi</title>
+    <style type="text/css">
+        .edi {
+            border: 1px solid #eee;
+            margin: 10px 0;
+            padding: 15px;
+			}
+    </style>
+</head>
+<body>
+    <div class="edi">
+                <form action="" method="post">
+                    <input type="text" readonly="readonly" name="uui" value="{{ ccm.uid }}" placeholder="序号" style="display: none">
+                    <input type="text" name="usn" value="{{ ccm.name }}" placeholder="用户名" />
+				    <input type="password" name="psd" value="{{ ccm.password }}" placeholder="密码" />
+				    <button type="submit">更新</button>
+                </form>
+			</div>
+
+</body>
+</html>
